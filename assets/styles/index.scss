@@ -1,2 +1,24 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+.sign-up-div {
+  border: 30px;
+}
+
+body {
+  background-image: url('https://i.imgur.com/rn8kHQ9.jpg');
+}
+
+
+h1 {
+    color: #000080;
+}
+
+h3 {
+    color: #000080;
+}
+
+.sign-up-link {
+  font-size: 20;
+  font-weight: bold;
+}

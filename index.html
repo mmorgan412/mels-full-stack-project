@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Mel's Trail Tracker</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -11,15 +11,61 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
-      <h1>Example</h1>
+  <body class="container-fluid">
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
-    </body>
+      <h1 class="text-center">Trail Tracker</h1>
+      <h5 id="message"> </h5>
+      <form id="sign-up" class="form-inline" style="display:none">
+      <fieldset>
+        <h3>Sign up!</h3>
+        <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
+        <input type="password" id="password" name="credentials[password]" placeholder="Enter Password" class="form-control" required>
+        <input type="password" id="password-confirmation" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password" required>
+        <input type="submit" name="submit" value="Sign up!" class="btn btn-primary">
+      </fieldset>
+    </form>
+
+    <form id="sign-in" class="form-inline">
+      <fieldset>
+        <h3>Sign in!</h3>
+        <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
+        <input type="password" name="credentials[password]" placeholder="Enter Password" class="form-control" required>
+        <input type="submit" name="submit" value="Sign in!" class="btn btn-primary">
+      </fieldset>
+    </form>
+
+
+      <div class="well-sm sign-up-link">
+        <a href="#" id="sign-up-link">Sign Up!</a>
+      </div>
+
+
+    <form id="change-password" style="display:none" class="form-inline">
+      <fieldset>
+        <h3>Change Password!</h3>
+        <input type="password" name="passwords[old]" placeholder="Old Password" class="form-control" required>
+        <input type="password" name="passwords[new]" placeholder="New Password" class="form-control" required>
+        <input type="submit" name="submit" value="Change Password!" class="btn btn-primary">
+      </fieldset>
+    </form>
+
+    <form id="sign-out" class ="sign-out" style="display:none">
+      <fieldset>
+        <h3>Sign Out!</h3>
+        <input type="submit" name="submit" value="Sign Out!" class="btn btn-warning">
+      </fieldset>
+    </form>
+
+    <form id="mountain" class="form-inline">
+      <fieldset>
+        <h3>Add a new trail!</h3>
+        <input type="text" name="credentials[mountain]" placeholder="ex/ Sunday River" class="form-control" required>
+        <input type="text" name="credentials[trail]" placeholder="trail name" class="form-control" required>
+        <input type="text" name="credentials[rating]" placeholder="loved/hated/okay" class="form-control" required>
+        <input type="submit" name="submit" value="Add Trail!" class="btn btn-primary">
+      </fieldset>
+    </form>
+
+
+  </body>
 </html>
