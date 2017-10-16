@@ -103,24 +103,42 @@
       </fieldset>
     </form>
 
-    <form id="mountain" class="form-inline">
-      <fieldset>
-        <h3>Add a new trail!</h3>
-        <label for="mountain">Mountain:</label>
-        <input type="text" name="credentials[mountain]" placeholder="ex/ Sunday River" class="form-control" required>
-        <label for="trail">Trail Name:</label>
-        <input type="text" name="credentials[trail]" placeholder="trail name" class="form-control" required>
-        <label for="rating">How was it?:</label>
+
+      <h3>Add a new trail!</h3>
+      <form>
+        <div id="mountain">
+          <div class="form-group row col-xs-10">
+          <label class="field-label" for="mountain">Mountain:</label>
+            <input type="text" name="credentials[mountain]" placeholder="ex/ Sunday River" class="form-control" required>
+          </div>
+          <div class="form-group row col-xs-10">
+            <label class="field-label" for="trail">Trail Name:</label>
+            <input type="text" name="credentials[trail]" placeholder="trail name" class="form-control" required>
+          </div>
+          <div class="form-group row col-xs-10">
+            <label class="field-label" for="trail">Difficulty:</label>
+            <input type="text" name="credentials[difficulty]" placeholder="ex/ blue square" class="form-control" required>
+          </div>
+          <div class="form-group row col-xs-10">
+            <label class="field-label" for="rating">How was it?:</label>
+            <input type="text" name="credentials[rating]" placeholder="loved/hated/okay" class="form-control" required>
+            <input type="submit" name="submit" value="Add Trail!" class="btn btn-primary">
+          </div>
+        </div>
+      </form>
+
+    <div id="trail-list" class="container-fluid rcorners" style="display-none">
+        <div class="col-xs-12"></div>
+    </div>
+
+  </body>
+</html>
+
+
+
+
         <!-- <select class="form-control" name="credentials[rating]" placeholder="loved/hated/okay" required>
           <option>Awesome!</option>
           <option>Hated it!</option>
           <option>Just Okay</option>
         </select> -->
-        <input type="text" name="credentials[rating]" placeholder="loved/hated/okay" class="form-control" required>
-        <input type="submit" name="submit" value="Add Trail!" class="btn btn-primary">
-      </fieldset>
-    </form>
-
-
-  </body>
-</html>

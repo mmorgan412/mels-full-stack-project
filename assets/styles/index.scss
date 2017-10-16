@@ -27,5 +27,21 @@ h3 {
 // background:#e3f2fd;
 // }
 .navbar-default {
- background-color: #e3f2fd;
+  background-color: #e3f2fd;
  }
+
+ .modal-title {
+   color: #000080;
+ }
+
+.rcorners {
+    border-radius: 25px;
+    background-color: #e3f2fd;
+    padding: 20px;
+    margin: 20px;
+    border: 40px;
+  }
+
+.btn {
+  margin: 20px;
+}
