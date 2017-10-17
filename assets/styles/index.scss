@@ -1,14 +1,9 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-.sign-up-div {
-  border: 30px;
-}
-
 body {
   background-image: url('https://i.imgur.com/rn8kHQ9.jpg');
 }
-
 
 h1 {
     color: #000080;
@@ -31,17 +26,22 @@ h3 {
  }
 
  .modal-title {
-   color: #000080;
+  color: #000080;
  }
 
 .rcorners {
-    border-radius: 25px;
-    background-color: #e3f2fd;
-    padding: 20px;
-    margin: 20px;
-    border: 40px;
+  border-radius: 20px;
+  background-color: #e3f2fd;
+  padding: 20px;
+  margin: 20px;
+  border: 40px;
   }
 
 .btn {
   margin: 20px;
+}
+
+.right-side-button {
+  float: right;
+  margin: 10px;
 }

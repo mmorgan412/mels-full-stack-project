@@ -25,14 +25,17 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#" data-toggle="modal" data-target="#signUpModal"><span class="glyphicon sign-up"></span>Sign Up</a></li>
-          <li><a href="#" data-toggle="modal" data-target="#signInModal"><span class="glyphicon sign-in"></span>Login</a></li>
+          <li id="sign-up-link"><a href="#" data-toggle="modal" data-target="#sign-up-modal"><span class="glyphicon sign-up"></span>Sign Up</a></li>
+          <li id="sign-in-link"><a href="#" data-toggle="modal" data-target="#sign-in-modal"><span class="glyphicon sign-in"></span>Login</a></li>
+          <li id="change-password-link"><a href="#" data-toggle="modal" data-target="#change-password-modal"><span class="glyphicon change-password"></span>Change Password</a></li>
         </ul>
+         <button type="submit" class="btn navbar-btn btn-danger right-side-button" name="sign-out" id="sign-out"  value="Sign Out">Sign Out</button>
       </div>
     </div>
   </nav>
 
-  <div class="modal fade" id="signUpModal" role="dialog">
+
+  <div class="modal fade" id="sign-up-modal" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->
@@ -42,7 +45,7 @@
           <h4 class="modal-title">Sign Up!</h4>
         </div>
         <div class="modal-body">
-          <h5 id="message"> </h5>
+        <h5 id="signup-fail-message"></h5>
           <form id="sign-up" class="form-inline">
           <fieldset>
             <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
@@ -60,9 +63,8 @@
     </div>
   </div>
 
-  <div class="modal fade" id="signInModal" role="dialog">
+  <div class="modal fade" id="sign-in-modal" role="dialog">
     <div class="modal-dialog">
-
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -70,7 +72,7 @@
           <h4 class="modal-title">Sign In!</h4>
         </div>
         <div class="modal-body">
-          <h5 id="message"> </h5>
+          <h5 id="signin-fail-message"></h5>
           <form id="sign-in" class="form-inline">
             <fieldset>
               <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
@@ -83,52 +85,65 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-
     </div>
   </div>
 
-    <form id="change-password" style="display:none" class="form-inline">
-      <fieldset>
-        <h3>Change Password!</h3>
-        <input type="password" name="passwords[old]" placeholder="Old Password" class="form-control" required>
-        <input type="password" name="passwords[new]" placeholder="New Password" class="form-control" required>
-        <input type="submit" name="submit" value="Change Password!" class="btn btn-primary">
-      </fieldset>
-    </form>
-
-    <form id="sign-out" class ="sign-out" style="display:none">
-      <fieldset>
-        <h3>Sign Out!</h3>
-        <input type="submit" name="submit" value="Sign Out!" class="btn btn-warning">
-      </fieldset>
-    </form>
-
-
-      <h3>Add a new trail!</h3>
-      <form>
-        <div id="mountain">
-          <div class="form-group row col-xs-10">
-          <label class="field-label" for="mountain">Mountain:</label>
-            <input type="text" name="credentials[mountain]" placeholder="ex/ Sunday River" class="form-control" required>
-          </div>
-          <div class="form-group row col-xs-10">
-            <label class="field-label" for="trail">Trail Name:</label>
-            <input type="text" name="credentials[trail]" placeholder="trail name" class="form-control" required>
-          </div>
-          <div class="form-group row col-xs-10">
-            <label class="field-label" for="trail">Difficulty:</label>
-            <input type="text" name="credentials[difficulty]" placeholder="ex/ blue square" class="form-control" required>
-          </div>
-          <div class="form-group row col-xs-10">
-            <label class="field-label" for="rating">How was it?:</label>
-            <input type="text" name="credentials[rating]" placeholder="loved/hated/okay" class="form-control" required>
-            <input type="submit" name="submit" value="Add Trail!" class="btn btn-primary">
-          </div>
+  <div class="modal fade" id="change-password-modal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Change Password</h4>
         </div>
-      </form>
+        <div class="modal-body">
+          <h5 id="password-fail-message"></h5>
+          <form id="change-password" class="form-inline">
+            <fieldset>
+              <input type="password" name="passwords[old]" placeholder="Old Password" class="form-control" required>
+              <input type="password" name="passwords[new]" placeholder="New Password" class="form-control" required>
+              <input type="submit" name="submit" value="Change Password!" class="btn btn-primary">
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <div id="trail-list" class="container-fluid rcorners" style="display-none">
-        <div class="col-xs-12"></div>
+    <h4 id="message"> </h4>
+
+    <button id ="add-trail-button" type="button" class="btn btn-primary">Add New Trail!</button>
+    <button id ="view-trails" type="button" class="btn btn-primary">My Trails</button>
+    <div class="container-fluid">
+      <div id="add-trail" class="add-trail col-xs-12 row">
+        <form>
+          <div id="mountain">
+            <div class="form-group row col-xs-10">
+            <label class="field-label" for="mountain">Mountain:</label>
+              <input type="text" name="credentials[mountain]" placeholder="ex/ Sunday River" class="form-control" required>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="trail">Trail Name:</label>
+              <input type="text" name="credentials[trail]" placeholder="trail name" class="form-control" required>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="trail">Difficulty:</label>
+              <input type="text" name="credentials[difficulty]" placeholder="ex/ blue square" class="form-control" required>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="rating">How was it?:</label>
+              <input type="text" name="credentials[rating]" placeholder="loved/hated/okay" class="form-control" required>
+              <input type="submit" name="submit" value="Add Trail!" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div id="trail-list" class="container-fluid rcorners row col-xs-12">
+      </div>
     </div>
 
   </body>

@@ -7,41 +7,42 @@ const signUpSuccess = function (data) {
   $('#message').text('You have successfully signed up! Log in to Play!')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
+  $('#sign-up-modal').modal('toggle')
 }
 
 const signUpFailure = function () {
-  $('#message').show()
   $('#sign-in').trigger('reset')
-  $('#message').text('Sign up Failed')
+  $('#signup-fail-message').text('Sign up Failed.  Please try again!')
 }
 
 const signInSuccess = function (data) {
   $('#message').show()
   $('#message').text('You have successfully signed in as ' + data.user.email)
   store.user = data.user
-  $('#sign-up').hide()
-  $('#sign-in').hide()
   $('#sign-out').show()
-  $('#change-password').show()
+  $('#change-password-link').show()
   $('#sign-in').trigger('reset')
   $('#sign-up').trigger('reset')
+  $('#sign-in-modal').modal('toggle')
+  $('#sign-up-link').hide()
+  $('#sign-in-link').hide()
 }
 
 const signInFailure = function () {
-  $('#message').show()
   $('#sign-up').trigger('reset')
-  $('#message').text('Sign in Failed. Check your user name and password and try again.')
+  $('#signin-fail-message').text('Sign in Failed. Check your user name and password and try again.')
 }
 
 const changePasswordSuccess = function () {
   $('#message').show()
   $('#message').text('You have successfully changed your password!')
   $('#change-password').trigger('reset')
+  $('#change-password-modal').modal('toggle')
 }
 
 const changePasswordFailure = function () {
-  $('#message').show()
-  $('#message').text('Change Password Failed - Please Try Again!')
+  $('#password-fail-message').show()
+  $('#password-fail-message').text('Change Password Failed - Please Try Again!')
 }
 
 const signOutSuccess = function () {
@@ -66,13 +67,14 @@ const createTrailFailure = function () {
 }
 
 const logOutDisplay = function () {
-  $('#sign-up').show()
-  $('#sign-in').show()
+  $('#sign-up-link').show()
+  $('#sign-in-link').show()
   $('#sign-out').hide()
-  $('#change-password').hide()
+  $('change-password-link').hide()
   $('#message').hide()
   $('#user-message').hide()
   $('#change-password').trigger('reset')
+  $('#change-password-link').hide()
 }
 
 module.exports = {

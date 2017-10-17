@@ -1,11 +1,6 @@
 
 'use strict'
 
-const signUpDisplay = function (event) {
-  $('#sign-up').show()
-  $('#sign-up-link').hide()
-}
-
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
@@ -46,13 +41,11 @@ const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#sign-out').on('submit', onSignOut)
+  $('#sign-out').on('click', onSignOut)
+  $('#sign-out').hide()
+  $('#change-password-link').hide()
 }
 
 module.exports = {
   addHandlers
-}
-
-module.exports = {
-  signUpDisplay
 }

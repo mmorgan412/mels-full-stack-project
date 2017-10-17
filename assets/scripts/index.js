@@ -3,6 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const authEvents = require('./auth/auth-events')
+const trailEvents = require('./trails/trail-events')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -15,9 +16,6 @@ $(() => {
 // require('./example')
 
 $(() => {
-  $('#sign-up-link').on('click', authEvents.signUpDisplay)
-})
-
-$(() => {
   authEvents.addHandlers()
+  trailEvents.addTrailHandlers()
 })
