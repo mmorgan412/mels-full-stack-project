@@ -34,10 +34,22 @@ const updateTrail = function (data) {
   })
 }
 
+const deleteTrail = function (data) {
+  return $.ajax({
+    url: config.apiOrigins + '/trails/' + store.game.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 // deleteTrail
 
 module.exports = {
   createTrail,
   getTrails,
-  updateTrail
+  updateTrail,
+  deleteTrail
 }

@@ -1,0 +1,12 @@
+
+{{#each trails as |trail|}}
+<!-- go through trails array and do something on each one -->
+
+ <!-- Developers, why are we using data-id and not just id? -->
+  <ol data-id="{{trail.id}}">
+    <li>
+        {{trail}}
+        <button type="button" class="edit">Edit</button>
+        <button type="button" class="remove">Remove</button>
+    </li>
+  </ol>
