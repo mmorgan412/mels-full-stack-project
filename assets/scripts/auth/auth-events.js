@@ -44,6 +44,17 @@ const addHandlers = function () {
   $('#sign-out').on('click', onSignOut)
   $('#sign-out').hide()
   $('#change-password-link').hide()
+  $('.alert-danger').hide()
+  $('.alert-success').hide()
+  $('.close-modal').on('click', function () {
+    $('#sign-up').trigger('reset')
+  })
+  $('.close-modal').on('click', function () {
+    $('#sign-in').trigger('reset')
+  })
+  $('.close-modal').on('click', function () {
+    $('#change-password').trigger('reset')
+  })
 }
 
 module.exports = {

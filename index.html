@@ -45,7 +45,7 @@
           <h4 class="modal-title">Sign Up!</h4>
         </div>
         <div class="modal-body">
-        <h5 id="signup-fail-message"></h5>
+        <h5 id="signup-fail-message" class="alert alert-danger"></h5>
           <form id="sign-up" class="form-inline">
           <fieldset>
             <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
@@ -56,7 +56,7 @@
         </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
         </div>
       </div>
 
@@ -72,7 +72,7 @@
           <h4 class="modal-title">Sign In!</h4>
         </div>
         <div class="modal-body">
-          <h5 id="signin-fail-message"></h5>
+          <h5 id="signin-fail-message" class="alert alert-danger"></h5>
           <form id="sign-in" class="form-inline">
             <fieldset>
               <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
@@ -82,7 +82,7 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
@@ -97,7 +97,7 @@
           <h4 class="modal-title">Change Password</h4>
         </div>
         <div class="modal-body">
-          <h5 id="password-fail-message"></h5>
+          <h5 id="password-fail-message" class="alert alert-danger"></h5>
           <form id="change-password" class="form-inline">
             <fieldset>
               <input type="password" name="passwords[old]" placeholder="Old Password" class="form-control" required>
@@ -107,13 +107,13 @@
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
         </div>
       </div>
     </div>
   </div>
 
-    <h4 id="message"> </h4>
+    <h4 id="message" class="alert alert-success"> </h4>
 
     <button id ="add-trail-button" type="button" class="btn btn-primary">Add New Trail!</button>
     <button id ="view-trails" type="button" class="btn btn-primary">My Trails</button>
@@ -130,26 +130,43 @@
               <input type="text" name="credentials[trail]" placeholder="trail name" class="form-control" required>
             </div>
             <div class="form-group row col-xs-10">
-              <label class="field-label" for="trail">Difficulty:</label>
-              <input type="text" name="credentials[difficulty]" placeholder="ex/ blue square" class="form-control" required>
+              <label class="field-label" for="rating">Difficulty:</label>
+              <select class="form-control" name="credentials[difficulty]" placeholder="loved/hated/okay" required>
+                <option value="" disabled selected hidden>Please Choose...</option>
+                <option value="0">Green Circle</option>
+                <option value="1">Blue Square</option>
+                <option value="2">Black Diamond</option>
+                <option value="2">Double Black Diamond</option>
+                <option value="2">Other</option>
+              </select>
             </div>
             <div class="form-group row col-xs-10">
               <label class="field-label" for="rating">How was it?:</label>
-              <input type="text" name="credentials[rating]" placeholder="loved/hated/okay" class="form-control" required>
-              <input type="submit" name="submit" value="Add Trail!" class="btn btn-primary">
+              <select class="form-control" name="credentials[rating]" placeholder="loved/hated/okay" required>
+                <option value="" disabled selected hidden>Please Choose...</option>
+                <option value="0">Awesome!</option>
+                <option value="1">Hated it!</option>
+                <option value="2">Just Okay</option>
+              </select>
+              <input type="submit" name="submit" value="Add Trail!" class="btn btn-primary add-new-trail">
             </div>
           </div>
         </form>
       </div>
+    </div>
 
-      <div id="trail-list" class="container-fluid rcorners row col-xs-12">
+      <div class="col-xs-2"></div>
+      <div id="trail-list" class="container-fluid rcorners row col-xs-10">
+      <div class="col-xs-2"></div>
+
       </div>
+
     </div>
 
   </body>
 </html>
 
-
+  <!-- <input type="text" name="credentials[rating]" placeholder="loved/hated/okay" class="form-control" required> -->
 
 
         <!-- <select class="form-control" name="credentials[rating]" placeholder="loved/hated/okay" required>
