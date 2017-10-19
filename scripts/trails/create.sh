@@ -8,3 +8,5 @@ curl --include --request POST "http://localhost:4741/trails" \
       "rating": "'"${RATING}"'"
     }
   }'
+
+  echo
