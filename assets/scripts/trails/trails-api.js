@@ -4,12 +4,14 @@ const config = require('../config')
 const store = require('../store')
 
 const createTrail = function (data) {
+  console.log('you hit the create Trail API')
   return $.ajax({
     url: config.apiOrigin + '/trails',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data: data
   })
 }
 
