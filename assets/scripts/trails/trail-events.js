@@ -3,6 +3,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const trailsApi = require('./trails-api')
 const trailsUi = require('./trails-ui')
+const store = require('./../store.js')
 
 const addTrail = function (event) {
   event.preventDefault()
@@ -18,7 +19,8 @@ const addTrailDisplay = function () {
   $('#add-trail-button').hide()
 }
 
-const viewTrails = function (data) {
+const viewTrails = function (event) {
+  console.log('view trails ran')
   event.preventDefault()
   trailsApi.getTrails()
     .then(trailsUi.getTrailsSuccess)
@@ -27,7 +29,6 @@ const viewTrails = function (data) {
     .then(updateTrail)
     .catch(trailsUi.getTrailsFailure)
   $('#trail-list').show()
-  $('#view-trails').hide()
 }
 
 const deleteTrail = () => {
@@ -35,6 +36,9 @@ const deleteTrail = () => {
     const index = $(event.target).attr('data-id')
     trailsApi.deleteTrail(index)
       .then(trailsUi.deleteTrailSuccess)
+      .then(() => {
+        $(event.target).parent().parent().hide()
+      })
       .catch(trailsUi.deleteTrailFailure)
   })
 }
@@ -49,6 +53,11 @@ const editTrail = () => {
       console.log('trail name is ', trailName)
       const difficulty = data.trail.difficulty
       const rating = data.trail.rating
+      const id = data.trail.id
+      store.trailId = data.trail.id
+      console.log('datas id is ', id)
+      console.log('store trailID is ', store.trailId)
+      $('data-index').val(id)
       $("input[name='trail[mountain_name]'").val(mountainName)
       $("input[name='trail[trail_name]'").val(trailName)
       $("select[name='trail[difficulty]'").val(difficulty)
@@ -66,7 +75,7 @@ const updateTrail = () => {
   $('#update-trail').on('submit', function (event) {
     event.preventDefault()
     const data = getFormFields(this)
-    trailsApi.updateTrail(data, 18)
+    trailsApi.updateTrail(data, store.trailId)
       .then(trailsUi.updateTrailSuccess)
       .catch(trailsUi.updateTrailFailure)
     $('#trail-list').show()
