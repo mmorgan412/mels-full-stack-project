@@ -23,6 +23,7 @@ const viewTrails = function (data) {
   trailsApi.getTrails()
     .then(trailsUi.getTrailsSuccess)
     .then(deleteTrail)
+    .then(editTrail)
     .then(updateTrail)
     .catch(trailsUi.getTrailsFailure)
   $('#trail-list').show()
@@ -33,18 +34,42 @@ const deleteTrail = () => {
   $('.remove').on('click', function (event) {
     const index = $(event.target).attr('data-id')
     trailsApi.deleteTrail(index)
-      .then(trailsUi.deleteTrailSuccess())
+      .then(trailsUi.deleteTrailSuccess)
       .catch(trailsUi.deleteTrailFailure)
   })
 }
 
-const updateTrail = () => {
+const editTrail = () => {
   $('.edit').on('click', function (event) {
     const index = $(event.target).attr('data-id')
-    console.log(index)
-    // trailsApi.deleteTrail(index)
-    //   .then(trailsUi.deleteTrailSuccess)
-    //   .catch(trailsUi.deleteTrailFailure)
+    trailsApi.getTrail(index).then(function (data) {
+      const mountainName = data.trail.mountain_name
+      console.log('mountain name is ', mountainName)
+      const trailName = data.trail.trail_name
+      console.log('trail name is ', trailName)
+      const difficulty = data.trail.difficulty
+      const rating = data.trail.rating
+      $("input[name='trail[mountain_name]'").val(mountainName)
+      $("input[name='trail[trail_name]'").val(trailName)
+      $("select[name='trail[difficulty]'").val(difficulty)
+      $("select[name='trail[rating]'").val(rating)
+      $('#update-trail-div').show()
+    })
+  })
+}
+
+// const editTrail = () => {
+//   $('.edit').on('click', function (event) {
+//     const index = $(event.target).attr('data-id')
+
+const updateTrail = () => {
+  $('#update-trail').on('submit', function (event) {
+    event.preventDefault()
+    const data = getFormFields(this)
+    trailsApi.updateTrail(data, 18)
+      .then(trailsUi.updateTrailSuccess)
+      .catch(trailsUi.updateTrailFailure)
+    $('#trail-list').show()
   })
 }
 
@@ -54,6 +79,7 @@ const addTrailHandlers = function () {
   $('#trail-list').hide()
   $('#view-trails').on('click', viewTrails)
   $('#add-trail').on('submit', addTrail)
+  $('#update-trail-div').hide()
 }
 
 module.exports = {

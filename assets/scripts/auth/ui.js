@@ -40,6 +40,7 @@ const signInSuccess = function (data) {
   $('.close-modal').on('click', function () {
     $('.alert-danger').hide()
   })
+  $('#update-trail-div').hide()
 }
 
 const signInFailure = function () {
@@ -102,6 +103,7 @@ const logOutDisplay = function () {
   $('#change-password-link').hide()
   $('.navbar-collapse').collapse('hide')
   $('.alert-danger').hide()
+  $('#update-trail-div').hide()
 }
 
 module.exports = {

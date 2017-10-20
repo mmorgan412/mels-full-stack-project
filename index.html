@@ -155,6 +155,45 @@
       </div>
     </div>
 
+    <div class="container-fluid">
+      <div id="update-trail-div" class="update-trail col-xs-12 row">
+        <form id="update-trail">
+          <h3> Update Trail </h3>
+          <div id="mountain">
+            <div class="form-group row col-xs-10">
+            <label class="field-label" for="mountain">Mountain:</label>
+              <input type="text" name="trail[mountain_name]" class="form-control" value="" required>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="trail">Trail Name:</label>
+              <input type="text" name="trail[trail_name]" class="form-control" value="" required>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="rating">Difficulty:</label>
+              <select class="form-control" name="trail[difficulty]" required>
+                <option value="" disabled selected hidden>Please Choose...</option>
+                <option value="Green Circle">Green Circle</option>
+                <option value="Blue Square">Blue Square</option>
+                <option value="Black Diamond">Black Diamond</option>
+                <option value="Double Black Diamond">Double Black Diamond</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="rating">How was it?:</label>
+              <select class="form-control" name="trail[rating]" required>
+                <option value="" disabled selected hidden>Please Choose...</option>
+                <option value="Awesome">Awesome!</option>
+                <option value="Hated it!">Hated it!</option>
+                <option value="Just Okay">Just Okay</option>
+              </select>
+              <input type="submit" name="submit" value="Update Trail!" class="btn btn-primary update-trail-button">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
 
       <div id="trail-list" class="container-fluid rcorners col-xs-10">
       </div>

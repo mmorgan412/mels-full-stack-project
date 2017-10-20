@@ -4,7 +4,6 @@ const config = require('../config')
 const store = require('../store')
 
 const createTrail = function (data) {
-  console.log('you hit the create Trail API')
   return $.ajax({
     url: config.apiOrigin + '/trails',
     method: 'POST',
@@ -25,9 +24,19 @@ const getTrails = function () {
   })
 }
 
-const updateTrail = function (data) {
+const getTrail = function (id) {
   return $.ajax({
-    url: config.apiOrigin + '/trails/' + data,
+    url: config.apiOrigin + '/trails/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateTrail = function (data, trailId) {
+  return $.ajax({
+    url: config.apiOrigin + '/trails/' + trailId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -53,5 +62,6 @@ module.exports = {
   createTrail,
   getTrails,
   updateTrail,
-  deleteTrail
+  deleteTrail,
+  getTrail
 }

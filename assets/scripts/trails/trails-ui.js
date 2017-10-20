@@ -1,7 +1,7 @@
 'use strict'
 
 const showTrailsTemplate = require('../templates/trail-listing.handlebars')
-const trailsApi = require('./trails-api')
+// const trailsApi = require('./trails-api')
 
 const addTrailSuccess = function (data) {
   $('#message').show()
@@ -18,6 +18,7 @@ const getTrailsSuccess = function (data) {
   const showTrailsHtml = showTrailsTemplate({ trails: data.trails })
   $('#message').show()
   $('#message').text('get trails success')
+  // $('#trail-list').empty()
   $('#trail-list').append(showTrailsHtml)
 }
 
@@ -29,7 +30,8 @@ const getTrailsFailure = function () {
 const deleteTrailSuccess = function () {
   $('#message').show()
   $('#message').text('delete trail success')
-    .then(trailsApi.getTrails())
+  // trailsApi.getTrails()
+  //   .then(getTrailsSuccess)
 }
 
 const deleteTrailFailure = function () {
