@@ -4,9 +4,13 @@ const showTrailsTemplate = require('../templates/trail-listing.handlebars')
 // const trailsApi = require('./trails-api')
 
 const addTrailSuccess = function (data) {
-  $('#message').show()
-  $('#message').text('You added a trail!!!')
+  $('#add-message').show()
+  $('#add-message').text('You added a trail!!')
+  window.setTimeout(function () {
+    $('#add-message').fadeOut()
+  }, 3000)
   $('#view-trails').click()
+  $('#add-trail-div').hide()
 }
 
 const addTrailFailure = function () {
@@ -16,38 +20,44 @@ const addTrailFailure = function () {
 }
 
 const getTrailsSuccess = function (data) {
-  console.log('get trails success is running')
   const showTrailsHtml = showTrailsTemplate({ trails: data.trails })
   $('#message').show()
   $('#message').text('get trails success')
+  window.setTimeout(function () {
+    $('#message').fadeOut()
+  }, 3000)
   $('#trail-list').empty()
   $('#trail-list').append(showTrailsHtml)
 }
 
 const getTrailsFailure = function () {
   $('#message').show()
-  $('#message').text('get trails failed')
+  $('#message').text('Sorry there was an issue getting your saved trails')
 }
 
 const deleteTrailSuccess = function () {
   $('#message').show()
-  $('#message').text('delete trail success')
+  $('#message').text('Consider it gone!')
 }
 
 const deleteTrailFailure = function () {
   $('#message').show()
-  $('#message').text('delete trail failed')
+  $('#message').text('Sorry, there was an issue deleting your trail')
 }
 
 const updateTrailSuccess = function () {
-  $('#message').show()
-  $('#message').text('update trail success!')
+  $('#update-message').show()
+  $('#update-message').text('Trail Updated')
+  window.setTimeout(function () {
+    $('#update-message').fadeOut()
+  }, 3000)
   $('#view-trails').click()
+  $('#update-trail-div').hide()
 }
 
 const updateTrailFailure = function () {
   $('#message').show()
-  $('#message').text('update trail failure!')
+  $('#message').text('Sorry, there was an issue updating your trail')
 }
 
 module.exports = {

@@ -12,6 +12,7 @@ const addTrail = function (event) {
     .then(trailsUi.addTrailSuccess)
     .catch(trailsUi.addTrailFailure)
   $('#trail-list').show()
+  $('#update-trail-div').hide()
 }
 
 const addTrailDisplay = function () {
@@ -20,7 +21,6 @@ const addTrailDisplay = function () {
 }
 
 const viewTrails = function (event) {
-  console.log('view trails ran')
   event.preventDefault()
   trailsApi.getTrails()
     .then(trailsUi.getTrailsSuccess)
@@ -45,18 +45,16 @@ const deleteTrail = () => {
 
 const editTrail = () => {
   $('.edit').on('click', function (event) {
+    $('#add-trail-div').hide()
+    $('#add-trail-button').show()
     const index = $(event.target).attr('data-id')
     trailsApi.getTrail(index).then(function (data) {
       const mountainName = data.trail.mountain_name
-      console.log('mountain name is ', mountainName)
       const trailName = data.trail.trail_name
-      console.log('trail name is ', trailName)
       const difficulty = data.trail.difficulty
       const rating = data.trail.rating
       const id = data.trail.id
       store.trailId = data.trail.id
-      console.log('datas id is ', id)
-      console.log('store trailID is ', store.trailId)
       $('data-index').val(id)
       $("input[name='trail[mountain_name]'").val(mountainName)
       $("input[name='trail[trail_name]'").val(trailName)
@@ -89,6 +87,8 @@ const addTrailHandlers = function () {
   $('#view-trails').on('click', viewTrails)
   $('#add-trail').on('submit', addTrail)
   $('#update-trail-div').hide()
+  $('#add-trail-button').hide()
+  $('#view-trails').hide()
 }
 
 module.exports = {

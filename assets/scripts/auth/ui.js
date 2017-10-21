@@ -4,7 +4,7 @@ const store = require('../store.js')
 
 const signUpSuccess = function (data) {
   $('#message').show()
-  $('#message').text('You have successfully signed up! Log in to Play!')
+  $('#message').text('You have successfully signed up! Log in to continue!')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
   $('#sign-up-modal').modal('toggle')
@@ -41,6 +41,8 @@ const signInSuccess = function (data) {
     $('.alert-danger').hide()
   })
   $('#update-trail-div').hide()
+  $('#add-trail-button').show()
+  $('#view-trails').show()
 }
 
 const signInFailure = function () {
@@ -104,6 +106,11 @@ const logOutDisplay = function () {
   $('.navbar-collapse').collapse('hide')
   $('.alert-danger').hide()
   $('#update-trail-div').hide()
+  $('#add-trail-button').hide()
+  $('#view-trails').hide()
+  $('#add-trail-div').hide()
+  $('#trail-list').hide()
+  $('#trail-list').empty()
 }
 
 module.exports = {
