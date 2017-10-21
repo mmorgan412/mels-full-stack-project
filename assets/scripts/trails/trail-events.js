@@ -18,6 +18,8 @@ const addTrail = function (event) {
 const addTrailDisplay = function () {
   $('#add-trail-div').show()
   $('#add-trail-button').hide()
+  $('#update-trail-div').hide()
+  $('#add-trail').trigger('reset')
 }
 
 const viewTrails = function (event) {
