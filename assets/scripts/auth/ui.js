@@ -13,6 +13,7 @@ const signUpSuccess = function (data) {
   $('.close-modal').on('click', function () {
     $('.alert-danger').hide()
   })
+  $('.load-messages').hide()
 }
 
 const signUpFailure = function () {
@@ -43,6 +44,7 @@ const signInSuccess = function (data) {
   $('#update-trail-div').hide()
   $('#add-trail-button').show()
   $('#view-trails').show()
+  $('.load-messages').hide()
 }
 
 const signInFailure = function () {
@@ -78,6 +80,7 @@ const signOutSuccess = function () {
   store.user = null
   logOutDisplay()
   $('.alert-danger').hide()
+  $('.load-messages').show()
 }
 
 const signOutFailure = function () {
