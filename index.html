@@ -25,6 +25,9 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p class="navbar-text"></p>
+          </li>
           <li id="sign-up-link">
             <a href="#" data-toggle="modal" data-target="#sign-up-modal"><span class="glyphicon sign-up"></span>Sign Up</a>
           </li>
@@ -122,16 +125,17 @@
   </div>
 
   <div class "container-fluid">
-  <div class="col-xs-4"></div>
-  <div class="col-xs-4 load-messages">
-    <div class="row">
-      <h2 id="welcome-message" >Welcome to the trail tracker!</h2>
+    <div class="col-xs-4"></div>
+    <div class="col-xs-4 load-messages">
+      <div class="row">
+        <h2 id="welcome-message" >Welcome to the trail tracker!</h2>
+      </div>
+      <div class="row">
+        <h3 id="start-message">Sign up or log in to start tracking!</h3>
+      </div>
     </div>
-    <div class="row">
-      <h3 id="start-message">Sign up or log in to start tracking!</h3>
-    </div>
-  </div>
-  <div class="col-xs-4"></div>
+    <div class="col-xs-4"></div>
+</div>
 
     <div class="row col-xs-12">
       <h4 id="message" class="alert alert-success"> </h4>
@@ -221,11 +225,13 @@
       </div>
     </div>
 
+     <div class='trail-sign-img'> </div>
 
       <div id="trail-list" class="container-fluid rcorners col-xs-10">
       </div>
 
     </div>
+
 
   </body>
 </html>

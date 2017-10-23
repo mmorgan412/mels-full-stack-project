@@ -17,7 +17,6 @@ const addTrailSuccess = function (data) {
 
 const addTrailFailure = function () {
   $('#message').show()
-  console.log('failure!')
   $('#message').text('Add trail failed :(')
 }
 
@@ -25,8 +24,6 @@ const getTrailsSuccess = function (data) {
   const showTrailsHtml = showTrailsTemplate({ trails: data.trails })
   $('#trail-list').empty()
   $('#view-trails').hide()
-  console.log('data.trails is ', data.trails)
-  console.log('data.trails.length is ', data.trails.length)
   if (data.trails.length !== 0) {
     $('#trail-list').append(showTrailsHtml)
     $('#message').show()

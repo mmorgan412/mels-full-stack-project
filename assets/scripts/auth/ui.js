@@ -26,8 +26,6 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
-  $('#message').show()
-  $('#message').text('Hi ' + data.user.email + ', you\'ve successfully logged in!')
   store.user = data.user
   $('#sign-out').show()
   $('#change-password-link').show()
@@ -45,6 +43,8 @@ const signInSuccess = function (data) {
   $('#add-trail-button').show()
   $('#view-trails').show()
   $('.load-messages').hide()
+  $('.navbar-text').show()
+  $('.navbar-text').text('Logged in as ' + data.user.email)
 }
 
 const signInFailure = function () {
@@ -115,6 +115,7 @@ const logOutDisplay = function () {
   $('#trail-list').hide()
   $('#trail-list').empty()
   $('#no-trails-message').hide()
+  $('.navbar-text').hide()
 }
 
 module.exports = {

@@ -46,7 +46,6 @@ const updateTrail = function (data, trailId) {
 }
 
 const deleteTrail = function (data) {
-  console.log('data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/trails/' + data,
     method: 'DELETE',
