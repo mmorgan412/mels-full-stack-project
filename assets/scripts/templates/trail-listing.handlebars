@@ -1,5 +1,5 @@
 
-      <div class="row">
+      <div class="row trails-header">
         <div class="col-xs-2 list-header">Trail</div>
         <div class="col-xs-2 list-header">Mountain</div>
         <div class="col-xs-2 list-header">Difficulty</div>
@@ -7,12 +7,11 @@
         <div class="col-xs-2 list-header">Remove</div>
         <div class="col-xs-2 list-header">Edit</div>
       </div>
+      <hr style="margin-bottom:5px !important; margin-top:5px !important;">
+
 
 {{#each trails as |trail|}}
 <!-- go through trails array and do something on each one -->
-
- <!-- Developers, why are we using data-id and not just id? -->
-
         <div class="row">
         <div class="col-xs-2">{{trail.trail_name}}</div>
         <div class="col-xs-2">{{trail.mountain_name}}</div>

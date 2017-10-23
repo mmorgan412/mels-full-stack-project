@@ -11,6 +11,8 @@ const addTrailSuccess = function (data) {
   }, 3000)
   $('#view-trails').click()
   $('#add-trail-div').hide()
+  $('#add-trail-button').show()
+  $('#no-trails-message').hide()
 }
 
 const addTrailFailure = function () {
@@ -21,13 +23,22 @@ const addTrailFailure = function () {
 
 const getTrailsSuccess = function (data) {
   const showTrailsHtml = showTrailsTemplate({ trails: data.trails })
-  $('#message').show()
-  $('#message').text('get trails success')
-  window.setTimeout(function () {
-    $('#message').fadeOut()
-  }, 3000)
   $('#trail-list').empty()
-  $('#trail-list').append(showTrailsHtml)
+  $('#view-trails').hide()
+  console.log('data.trails is ', data.trails)
+  console.log('data.trails.length is ', data.trails.length)
+  if (data.trails.length !== 0) {
+    $('#trail-list').append(showTrailsHtml)
+    $('#message').show()
+    $('#message').text('get trails success')
+    window.setTimeout(function () {
+      $('#message').fadeOut()
+    }, 3000)
+  } else {
+    $('#trail-list').hide()
+    $('#no-trails-message').show()
+    $('#no-trails-message').text('You don\'t have any trails.  Add a New Trail to get started!')
+  }
 }
 
 const getTrailsFailure = function () {
@@ -38,6 +49,9 @@ const getTrailsFailure = function () {
 const deleteTrailSuccess = function () {
   $('#message').show()
   $('#message').text('Consider it gone!')
+  window.setTimeout(function () {
+    $('#message').fadeOut()
+  }, 3000)
 }
 
 const deleteTrailFailure = function () {

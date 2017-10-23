@@ -114,6 +114,7 @@ const logOutDisplay = function () {
   $('#add-trail-div').hide()
   $('#trail-list').hide()
   $('#trail-list').empty()
+  $('#no-trails-message').hide()
 }
 
 module.exports = {

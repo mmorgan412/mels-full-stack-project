@@ -25,11 +25,19 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li id="sign-up-link"><a href="#" data-toggle="modal" data-target="#sign-up-modal"><span class="glyphicon sign-up"></span>Sign Up</a></li>
-          <li id="sign-in-link"><a href="#" data-toggle="modal" data-target="#sign-in-modal"><span class="glyphicon sign-in"></span>Login</a></li>
-          <li id="change-password-link"><a href="#" data-toggle="modal" data-target="#change-password-modal"><span class="glyphicon change-password"></span>Change Password</a></li>
+          <li id="sign-up-link">
+            <a href="#" data-toggle="modal" data-target="#sign-up-modal"><span class="glyphicon sign-up"></span>Sign Up</a>
+          </li>
+          <li id="sign-in-link">
+              <a href="#" data-toggle="modal" data-target="#sign-in-modal"><span class="glyphicon sign-in"></span>Login</a>
+          </li>
+          <li id="change-password-link">
+              <a href="#" data-toggle="modal" data-target="#change-password-modal"><span class="glyphicon change-password"></span>Change Password</a>
+          </li>
+          <li>
+            <button type="submit" class="btn navbar-btn btn-danger right-side-button" name="sign-out" id="sign-out"  value="Sign Out">Sign Out</button>
+          </li>
         </ul>
-         <button type="submit" class="btn navbar-btn btn-danger right-side-button" name="sign-out" id="sign-out"  value="Sign Out">Sign Out</button>
       </div>
     </div>
   </nav>
@@ -129,6 +137,7 @@
       <h4 id="message" class="alert alert-success"> </h4>
       <h4 id="update-message" class="alert alert-success"></h4>
       <h4 id="add-message" class="alert alert-success"></h4>
+      <h4 id="no-trails-message" class="alert alert-warning alert-dismissable"></h4>
     </div>
   </div>
 

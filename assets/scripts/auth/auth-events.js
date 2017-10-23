@@ -55,6 +55,7 @@ const addHandlers = function () {
   $('.close-modal').on('click', function () {
     $('#change-password').trigger('reset')
   })
+  $('#no-trails-message').hide()
 }
 
 module.exports = {
