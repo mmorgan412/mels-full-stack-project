@@ -10,16 +10,19 @@ body {
 h1 {
     color: $navy-blue;
     font-family: $font;
+    font-weight: bold;
 }
 
 h3 {
     color: $navy-blue;
     font-family: $font;
+    font-weight: bold;
 }
 
 h2 {
   color: $navy-blue;
   font-family: $font;
+  font-weight: bold;
 
 }
 
@@ -62,6 +65,10 @@ h2 {
   width: 80%
 }
 
+.alert-warning {
+  width: 80%
+}
+
 .modal-header {
   background-color: #e3f2fd;
   font-family: $font;
@@ -71,6 +78,7 @@ h2 {
   color: $navy-blue;
   font-size: 16px;
   font-family: $font;
+  font-weight: bold;
 }
 
 .list-header {

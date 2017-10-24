@@ -26,11 +26,6 @@ const getTrailsSuccess = function (data) {
   $('#view-trails').hide()
   if (data.trails.length !== 0) {
     $('#trail-list').append(showTrailsHtml)
-    $('#message').show()
-    $('#message').text('get trails success')
-    window.setTimeout(function () {
-      $('#message').fadeOut()
-    }, 3000)
   } else {
     $('#trail-list').hide()
     $('#no-trails-message').show()
@@ -48,11 +43,6 @@ const searchTrailsSuccess = function (data) {
   $('#add-trail-button').show()
   if (data.trails.length !== 0) {
     $('#trail-list').append(showTrailsHtml)
-    $('#message').show()
-    $('#message').text('get trails success')
-    window.setTimeout(function () {
-      $('#message').fadeOut()
-    }, 3000)
   } else {
     $('#trail-list').hide()
     $('#no-trails-message').show()
