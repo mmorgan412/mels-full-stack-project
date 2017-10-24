@@ -1,7 +1,6 @@
 'use strict'
 
 const showTrailsTemplate = require('../templates/trail-listing.handlebars')
-// const trailsApi = require('./trails-api')
 
 const addTrailSuccess = function (data) {
   $('#add-message').show()
