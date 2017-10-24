@@ -14,6 +14,7 @@ const signUpSuccess = function (data) {
     $('.alert-danger').hide()
   })
   $('.jumbotron').hide()
+  $('.trail-sign-img').hide()
 }
 
 const signUpFailure = function () {
