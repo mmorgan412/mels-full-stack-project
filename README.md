@@ -25,8 +25,8 @@ README
 ## Unsolved Problems or future enhancements
 
       Would like to add more functionality to query the database by mountain or difficulty.
-      I would like to work on my design a little more.  I would also split my mountain table
-      out into a separate table.  I'd like to make my form fields for adding and editing buttons
+      I would like to work on my design / styling.  I would also split my mountains
+      out into a separate table.  I'd like to make my form fields for adding and editing buttons into a modal.
 
   ## Development Process
 
@@ -44,5 +44,5 @@ README
 
 
 
- ## ERD & Wireframes: https://imgur.com/gallery/iuhmz
+ ## Wireframes: https://i.imgur.com/cFeRq30.jpg?1
 ## User Stories: https://docs.google.com/document/d/1LNk7WXuDChNlu4LZ_UfpmR21W9MSYHyq9Ftlyzs3xQY/edit?usp=sharing
