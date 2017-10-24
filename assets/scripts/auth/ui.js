@@ -13,7 +13,7 @@ const signUpSuccess = function (data) {
   $('.close-modal').on('click', function () {
     $('.alert-danger').hide()
   })
-  $('.load-messages').hide()
+  $('.jumbotron').hide()
 }
 
 const signUpFailure = function () {
@@ -42,9 +42,10 @@ const signInSuccess = function (data) {
   $('#update-trail-div').hide()
   $('#add-trail-button').show()
   $('#view-trails').show()
-  $('.load-messages').hide()
+  $('.jumbotron').hide()
   $('.navbar-text').show()
   $('.navbar-text').text('Logged in as ' + data.user.email)
+  $('.trail-sign-img').hide()
 }
 
 const signInFailure = function () {
@@ -80,7 +81,7 @@ const signOutSuccess = function () {
   store.user = null
   logOutDisplay()
   $('.alert-danger').hide()
-  $('.load-messages').show()
+  $('.jumbotron').show()
 }
 
 const signOutFailure = function () {
@@ -116,6 +117,7 @@ const logOutDisplay = function () {
   $('#trail-list').empty()
   $('#no-trails-message').hide()
   $('.navbar-text').hide()
+  $('.trail-sign-img').show()
 }
 
 module.exports = {
