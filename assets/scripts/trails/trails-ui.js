@@ -43,6 +43,8 @@ const searchTrailsSuccess = function (data) {
   $('#trail-list').empty()
   $('#trail-list').show()
   $('#view-trails').show()
+  $('#add-trail-div').hide()
+  $('#update-trail-div').hide()
   if (data.trails.length !== 0) {
     $('#trail-list').append(showTrailsHtml)
     $('#message').show()
@@ -58,6 +60,11 @@ const searchTrailsSuccess = function (data) {
       $('#no-trails-message').fadeOut()
     }, 3000)
   }
+}
+
+const searchTrailsFailure = function () {
+  $('#message').show()
+  $('#message').text('Sorry there was an issue searching for your trails')
 }
 
 const getTrailsFailure = function () {
@@ -102,5 +109,6 @@ module.exports = {
   deleteTrailFailure,
   updateTrailSuccess,
   updateTrailFailure,
-  searchTrailsSuccess
+  searchTrailsSuccess,
+  searchTrailsFailure
 }

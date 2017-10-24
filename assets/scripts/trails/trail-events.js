@@ -63,6 +63,7 @@ const editTrail = () => {
       $("select[name='trail[difficulty]'").val(difficulty)
       $("select[name='trail[rating]'").val(rating)
       $('#update-trail-div').show()
+      $('#search-trails').trigger('reset')
     })
   })
 }
