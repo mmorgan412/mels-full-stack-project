@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Mel's Trail Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+  <body class="container-fluid">
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Trail Tracker</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <p class="navbar-text"></p>
+          </li>
+          <li id="sign-up-link">
+            <a href="#" data-toggle="modal" data-target="#sign-up-modal"><span class="glyphicon sign-up"></span>Sign Up</a>
+          </li>
+          <li id="sign-in-link">
+              <a href="#" data-toggle="modal" data-target="#sign-in-modal"><span class="glyphicon sign-in"></span>Login</a>
+          </li>
+          <li id="change-password-link">
+              <a href="#" data-toggle="modal" data-target="#change-password-modal"><span class="glyphicon change-password"></span>Change Password</a>
+          </li>
+          <li>
+            <button type="submit" class="btn navbar-btn btn-danger right-side-button" name="sign-out" id="sign-out"  value="Sign Out">Sign Out</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="modal fade" id="sign-up-modal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign Up!</h4>
+        </div>
+        <div class="modal-body">
+        <h5 id="signup-fail-message" class="alert alert-danger"></h5>
+          <form id="sign-up" class="form-inline">
+          <fieldset>
+            <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
+            <input type="password" id="password" name="credentials[password]" placeholder="Enter Password" class="form-control" required>
+            <input type="password" id="password-confirmation" name="credentials[password_confirmation]" class="form-control" placeholder="Confirm Password" required>
+            <input type="submit" name="submit" value="Sign up!" class="btn btn-primary">
+          </fieldset>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal fade" id="sign-in-modal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign In!</h4>
+        </div>
+        <div class="modal-body">
+          <h5 id="signin-fail-message" class="alert alert-danger"></h5>
+          <form id="sign-in" class="form-inline">
+            <fieldset>
+              <input type="text" name="credentials[email]" placeholder="Enter Email" class="form-control" required>
+              <input type="password" name="credentials[password]" placeholder="Enter Password" class="form-control" required>
+              <input type="submit" name="submit" value="Sign in!" class="btn btn-primary">
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="change-password-modal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Change Password</h4>
+        </div>
+        <div class="modal-body">
+          <h5 id="password-fail-message" class="alert alert-danger"></h5>
+          <form id="change-password" class="form-inline">
+            <fieldset>
+              <input type="password" name="passwords[old]" placeholder="Old Password" class="form-control" required>
+              <input type="password" name="passwords[new]" placeholder="New Password" class="form-control" required>
+              <input type="submit" name="submit" value="Change Password!" class="btn btn-primary">
+            </fieldset>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default close-modal" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class = "container">
+
+   <div class = "jumbotron">
+      <h1>Welcome to trail tracker</h1>
+      <p>Sign up or log in to start tracking!</p>
+   </div>
+
+</div>
+
+    <div class="row col-xs-12">
+      <h4 id="message" class="alert alert-success"> </h4>
+      <h4 id="update-message" class="alert alert-success"></h4>
+      <h4 id="add-message" class="alert alert-success"></h4>
+      <h4 id="no-trails-message" class="alert alert-warning alert-dismissable"></h4>
+    </div>
+  </div>
+
+    <div class="container-fluid">
+      <div id="add-trail-div" class="add-trail col-xs-12 row">
+        <form id="add-trail">
+          <h3> Add Trail </h3>
+          <div id="mountain">
+            <div class="form-group row col-xs-10">
+            <label class="field-label" for="mountain">Mountain:</label>
+              <input type="text" name="trail[mountain_name]" placeholder="ex/ Sunday River" class="form-control" maxlength="40" required>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="trail">Trail Name:</label>
+              <input type="text" name="trail[trail_name]" placeholder="trail name" class="form-control" maxlength="40" required>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="rating">Difficulty:</label>
+              <select class="form-control" name="trail[difficulty]" placeholder="loved/hated/okay" required>
+                <option value="" disabled selected hidden>Please Choose...</option>
+                <option value="Green Circle">Green Circle</option>
+                <option value="Blue Square">Blue Square</option>
+                <option value="Black Diamond">Black Diamond</option>
+                <option value="Double Black Diamond">Double Black Diamond</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="rating">How was it?:</label>
+              <select class="form-control" name="trail[rating]" placeholder="loved/hated/okay" required>
+                <option value="" disabled selected hidden>Please Choose...</option>
+                <option value="Awesome!">Awesome!</option>
+                <option value="Hated it!">Hated it!</option>
+                <option value="Just Okay">Just Okay</option>
+              </select>
+              <input type="submit" name="submit" value="Add Trail!" class="btn btn-primary add-new-trail">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div id="update-trail-div" class="update-trail col-xs-12 row">
+        <form id="update-trail">
+          <h3> Update Trail </h3>
+          <div id="update-mountain" data-index="">
+            <div class="form-group row col-xs-10">
+            <label class="field-label" for="mountain">Mountain:</label>
+              <input type="text" name="trail[mountain_name]" class="form-control" value="" maxlength=40 required>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="trail">Trail Name:</label>
+              <input type="text" name="trail[trail_name]" class="form-control" value="" maxlength="40" required>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="rating">Difficulty:</label>
+              <select class="form-control" name="trail[difficulty]" required>
+                <option value="" disabled selected hidden>Please Choose...</option>
+                <option value="Green Circle">Green Circle</option>
+                <option value="Blue Square">Blue Square</option>
+                <option value="Black Diamond">Black Diamond</option>
+                <option value="Double Black Diamond">Double Black Diamond</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="form-group row col-xs-10">
+              <label class="field-label" for="rating">How was it?:</label>
+              <select class="form-control" name="trail[rating]" required>
+                <option value="" disabled selected hidden>Please Choose...</option>
+                <option value="Awesome!">Awesome!</option>
+                <option value="Hated it!">Hated it!</option>
+                <option value="Just Okay">Just Okay</option>
+              </select>
+              <input type="submit" name="submit" value="Update Trail!" class="btn btn-primary update-trail-button">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+     <div class='trail-sign-img'> </div>
+
+      <div id="trail-list" class="container-fluid rcorners col-xs-10">
+      </div>
+
+      <div class="container-fluid row col-xs-12">
+       <div "trail-buttons">
+          <button id ="add-trail-button" type="button" class="btn btn-primary">Add New Trail!</button>
+          <button id ="view-trails" type="button" class="btn btn-primary">View All Trails</button>
+        </div>
+      </div>
+
+
+       <div class="form-group row col-xs-4">
+         <form id="search-trails">
+         <label class="field-label" for="rating">Search Your Trails By Rating</label>
+         <select class="form-control" name="trail[rating]" required>
+           <option value="" disabled selected hidden> Select Rating </option>
+           <option value="Awesome!">Awesome!</option>
+           <option value="Hated it!">Hated it!</option>
+           <option value="Just Okay">Just Okay</option>
+         </select>
+         <input type="submit" name="submit" value="Search" class="btn btn-primary update-trail-button">
+       </form>
+       </div>
+
+
+
+  </body>
+</html>
