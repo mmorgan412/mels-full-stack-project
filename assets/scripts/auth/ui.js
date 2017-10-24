@@ -124,6 +124,7 @@ const logOutDisplay = function () {
   $('.trail-sign-img').show()
   $('.trail-buttons').hide()
   $('#search-trails').hide()
+  $('#search-trails').trigger('reset')
 }
 
 module.exports = {
