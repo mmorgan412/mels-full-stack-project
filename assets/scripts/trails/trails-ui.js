@@ -38,6 +38,28 @@ const getTrailsSuccess = function (data) {
   }
 }
 
+const searchTrailsSuccess = function (data) {
+  const showTrailsHtml = showTrailsTemplate({ trails: data.trails })
+  $('#trail-list').empty()
+  $('#trail-list').show()
+  $('#view-trails').show()
+  if (data.trails.length !== 0) {
+    $('#trail-list').append(showTrailsHtml)
+    $('#message').show()
+    $('#message').text('get trails success')
+    window.setTimeout(function () {
+      $('#message').fadeOut()
+    }, 3000)
+  } else {
+    $('#trail-list').hide()
+    $('#no-trails-message').show()
+    $('#no-trails-message').text('You don\'t have any trails with that rating.')
+    window.setTimeout(function () {
+      $('#no-trails-message').fadeOut()
+    }, 3000)
+  }
+}
+
 const getTrailsFailure = function () {
   $('#message').show()
   $('#message').text('Sorry there was an issue getting your saved trails')
@@ -79,5 +101,6 @@ module.exports = {
   deleteTrailSuccess,
   deleteTrailFailure,
   updateTrailSuccess,
-  updateTrailFailure
+  updateTrailFailure,
+  searchTrailsSuccess
 }

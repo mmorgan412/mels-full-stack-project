@@ -55,12 +55,21 @@ const deleteTrail = function (data) {
   })
 }
 
-// deleteTrail
+const searchTrails = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/trails?rating=' + data,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   createTrail,
   getTrails,
   updateTrail,
   deleteTrail,
-  getTrail
+  getTrail,
+  searchTrails
 }

@@ -85,9 +85,13 @@ hr {
   width: 100%;
 }
 
-// .jumbotron {
-//   background: url("https://i.imgur.com/iUtDxKP.jpg") no-repeat center;
-// }
+.jumbotron {
+  font-family: "Lucida Console", Monaco, monospace
+}
+
+.jumbotron-logged-in {
+  font-family: "Lucida Console", Monaco, monospace
+}
 
 .navbar-text {
   color: $navy-blue;

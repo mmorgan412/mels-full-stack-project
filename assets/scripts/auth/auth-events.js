@@ -56,6 +56,8 @@ const addHandlers = function () {
     $('#change-password').trigger('reset')
   })
   $('#no-trails-message').hide()
+  $('.jumbotron-logged-in').hide()
+  $('#search-trails').hide()
 }
 
 module.exports = {

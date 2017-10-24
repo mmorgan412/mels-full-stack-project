@@ -141,8 +141,6 @@
     </div>
   </div>
 
-    <button id ="add-trail-button" type="button" class="btn btn-primary">Add New Trail!</button>
-    <button id ="view-trails" type="button" class="btn btn-primary">My Trails</button>
     <div class="container-fluid">
       <div id="add-trail-div" class="add-trail col-xs-12 row">
         <form id="add-trail">
@@ -226,7 +224,26 @@
       <div id="trail-list" class="container-fluid rcorners col-xs-10">
       </div>
 
-    </div>
+      <div class = "container">
+       <div "jumbotron-logged-in">
+          <button id ="add-trail-button" type="button" class="btn btn-primary">Add New Trail!</button>
+          <button id ="view-trails" type="button" class="btn btn-primary">View All Trails</button>
+        </div>
+      </div>
+
+       <div class="form-group row col-xs-3">
+         <form id="search-trails">
+         <label class="field-label" for="rating">Search Your Trails By Rating</label>
+         <select class="form-control" name="trail[rating]" required>
+           <option value="" disabled selected hidden>Select Rating</option>
+           <option value="Awesome">Awesome!</option>
+           <option value="Hated it!">Hated it!</option>
+           <option value="Just Okay">Just Okay</option>
+         </select>
+         <input type="submit" name="submit" value="Search" class="btn btn-primary update-trail-button">
+       </form>
+       </div>
+
 
 
   </body>

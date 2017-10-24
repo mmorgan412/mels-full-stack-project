@@ -47,6 +47,9 @@ const signInSuccess = function (data) {
   $('.navbar-text').show()
   $('.navbar-text').text('Logged in as ' + data.user.email)
   $('.trail-sign-img').hide()
+  $('#message').hide()
+  $('.jumbotron-logged-in').show()
+  $('#search-trails').show()
 }
 
 const signInFailure = function () {
@@ -119,6 +122,8 @@ const logOutDisplay = function () {
   $('#no-trails-message').hide()
   $('.navbar-text').hide()
   $('.trail-sign-img').show()
+  $('.jumbotron-logged-in').hide()
+  $('#search-trails').hide()
 }
 
 module.exports = {
