@@ -148,11 +148,11 @@
           <div id="mountain">
             <div class="form-group row col-xs-10">
             <label class="field-label" for="mountain">Mountain:</label>
-              <input type="text" name="trail[mountain_name]" placeholder="ex/ Sunday River" class="form-control" required>
+              <input type="text" name="trail[mountain_name]" placeholder="ex/ Sunday River" class="form-control" maxlength="40" required>
             </div>
             <div class="form-group row col-xs-10">
               <label class="field-label" for="trail">Trail Name:</label>
-              <input type="text" name="trail[trail_name]" placeholder="trail name" class="form-control" required>
+              <input type="text" name="trail[trail_name]" placeholder="trail name" class="form-control" maxlength="40" required>
             </div>
             <div class="form-group row col-xs-10">
               <label class="field-label" for="rating">Difficulty:</label>
@@ -187,11 +187,11 @@
           <div id="update-mountain" data-index="">
             <div class="form-group row col-xs-10">
             <label class="field-label" for="mountain">Mountain:</label>
-              <input type="text" name="trail[mountain_name]" class="form-control" value="" required>
+              <input type="text" name="trail[mountain_name]" class="form-control" value="" maxlength=40 required>
             </div>
             <div class="form-group row col-xs-10">
               <label class="field-label" for="trail">Trail Name:</label>
-              <input type="text" name="trail[trail_name]" class="form-control" value="" required>
+              <input type="text" name="trail[trail_name]" class="form-control" value="" maxlength="40" required>
             </div>
             <div class="form-group row col-xs-10">
               <label class="field-label" for="rating">Difficulty:</label>
@@ -224,14 +224,14 @@
       <div id="trail-list" class="container-fluid rcorners col-xs-10">
       </div>
 
-      <div class = "container">
-       <div "jumbotron-logged-in">
+
+       <div "trail-buttons">
           <button id ="add-trail-button" type="button" class="btn btn-primary">Add New Trail!</button>
           <button id ="view-trails" type="button" class="btn btn-primary">View All Trails</button>
         </div>
-      </div>
 
-       <div class="form-group row col-xs-3">
+
+       <div class="form-group row col-xs-4">
          <form id="search-trails">
          <label class="field-label" for="rating">Search Your Trails By Rating</label>
          <select class="form-control" name="trail[rating]" required>
