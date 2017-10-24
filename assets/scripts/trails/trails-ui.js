@@ -45,6 +45,7 @@ const searchTrailsSuccess = function (data) {
   $('#view-trails').show()
   $('#add-trail-div').hide()
   $('#update-trail-div').hide()
+  $('#add-trail-button').show()
   if (data.trails.length !== 0) {
     $('#trail-list').append(showTrailsHtml)
     $('#message').show()
